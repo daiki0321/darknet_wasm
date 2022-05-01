@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+//pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
 list *get_paths(char *filename)
 {
@@ -43,13 +43,13 @@ char **get_random_paths(char **paths, int n, int m)
 {
     char **random_paths = calloc(n, sizeof(char*));
     int i;
-    pthread_mutex_lock(&mutex);
+    //pthread_mutex_lock(&mutex);
     for(i = 0; i < n; ++i){
         int index = rand()%m;
         random_paths[i] = paths[index];
         //if(i == 0) printf("%s\n", paths[index]);
     }
-    pthread_mutex_unlock(&mutex);
+    //pthread_mutex_unlock(&mutex);
     return random_paths;
 }
 

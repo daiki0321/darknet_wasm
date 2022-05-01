@@ -419,7 +419,7 @@ int main(int argc, char **argv)
     }
 #endif
 
-    if (0 == strcmp(argv[1], "average")){
+    /* if (0 == strcmp(argv[1], "average")){
         average(argc, argv);
     } else if (0 == strcmp(argv[1], "yolo")){
         run_yolo(argc, argv);
@@ -429,13 +429,15 @@ int main(int argc, char **argv)
         run_lsd(argc, argv);
     } else if (0 == strcmp(argv[1], "detector")){
         run_detector(argc, argv);
-    } else if (0 == strcmp(argv[1], "detect")){
+    } else */
+    if (0 == strcmp(argv[1], "detect")){
         float thresh = find_float_arg(argc, argv, "-thresh", .5);
         char *filename = (argc > 4) ? argv[4]: 0;
         char *outfile = find_char_arg(argc, argv, "-out", 0);
         int fullscreen = find_arg(argc, argv, "-fullscreen");
         test_detector("cfg/coco.data", argv[2], argv[3], filename, thresh, .5, outfile, fullscreen);
-    } else if (0 == strcmp(argv[1], "cifar")){
+    }
+    /* else if (0 == strcmp(argv[1], "cifar")){
         run_cifar(argc, argv);
     } else if (0 == strcmp(argv[1], "go")){
         run_go(argc, argv);
@@ -495,7 +497,8 @@ int main(int argc, char **argv)
         mkimg(argv[2], argv[3], atoi(argv[4]), atoi(argv[5]), atoi(argv[6]), argv[7]);
     } else if (0 == strcmp(argv[1], "imtest")){
         test_resize(argv[2]);
-    } else {
+    } */ 
+    else {
         fprintf(stderr, "Not an option: %s\n", argv[1]);
     }
     return 0;
